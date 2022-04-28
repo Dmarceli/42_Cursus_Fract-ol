@@ -6,7 +6,6 @@ int draw(t_mlx *mlx)
 	int	y;
 	unsigned int color;
 
-
 	x = -1;
 	y = -1;
 	while (++y < HEIGHT)
@@ -19,7 +18,6 @@ int draw(t_mlx *mlx)
 			color = ft_color(calculate_mandelbrot(&mlx->nbrs));
 			my_pixel_put(&mlx->data, x, y, color);
 		}
-		//print_pixel(mlx);
 	}
 	return (0);
 }
@@ -33,6 +31,8 @@ void	init_mandelbrot(t_nbrs *fractol)
 		+ (fractol->max.re - fractol->min.re) * HEIGHT / WIDTH;
 	fractol->relation.re = (fractol->max.re - fractol->min.re) / (WIDTH - 1);
 	fractol->relation.im = (fractol->max.im - fractol->min.im) / (HEIGHT - 1);
+	printf("min.re == %f\n", fractol->min.re);
+	printf("max.re == %f\n", fractol->max.re);
 }
 
 
@@ -41,7 +41,6 @@ double calculate_mandelbrot(t_nbrs *nbr)
 	int i;
 	double t;
 	t_complex z;
-
 	z = init_complex(nbr->c.re, nbr->c.im);
 	i = 0;
 	while (pow(z.re, 2.0) + pow(z.im, 2.0) <= 4

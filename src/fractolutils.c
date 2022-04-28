@@ -22,7 +22,7 @@ void	init_mlx(t_mlx *mlx)
 	mlx->data.img = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
 	mlx->data.addr = mlx_get_data_addr(mlx->data.img, &mlx->data.bits_per_pixel,
 			&mlx->data.line_length, &mlx->data.endian);
-	mlx_hook(mlx->win_ptr, ON_KEYDOWN, 1L<<0, ft_events, &mlx);
+	mlx_hook(mlx->win_ptr, ON_KEYDOWN, 1L<<0, ft_events, mlx);
 
 }
 

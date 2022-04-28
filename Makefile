@@ -2,7 +2,7 @@
 NAME	:=	Fract_ol
 
 CC		:=	gcc
-CFLAGS	:= -Wall -Wextra -Werror -g
+CFLAGS	:= -O3 -Wall -Wextra -Werror -g
 LIBS	=	-Iincs -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 PATH_SRC		:=	./src

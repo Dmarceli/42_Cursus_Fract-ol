@@ -6,7 +6,7 @@
 /*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:03:41 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/04/28 13:41:38 by danielseque      ###   ########.fr       */
+/*   Updated: 2022/04/28 15:54:23 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,9 @@ double 		calculate_mandelbrot(t_nbrs *nbr);
 int 		draw(t_mlx *mlx);
 int			ft_color(double t);
 int			ft_int_rgb(int r, int g, int b);
-int 		ft_events(int keycode ,t_mlx *mlx);
+int 		ft_events(int keycode, t_mlx *mlx);
 int			ft_exit(t_mlx *mlx);
 int			print_pixel(t_mlx *mlx);
 void 		init_loops(t_mlx *mlx);
+void		move_fractal(int keycode, t_mlx *mlx);
 #endif
