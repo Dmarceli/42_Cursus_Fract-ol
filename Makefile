@@ -2,8 +2,8 @@
 NAME	:=	Fract_ol
 
 CC		:=	gcc
-CFLAGS	:= -O3 -Wall -Wextra -Werror
-LIBS	=	-Imlx -Imac -lm -lmlx -framework OpenGL -framework AppKit
+CFLAGS	:= -Wall -Wextra -Werror -g
+LIBS	=	-Iincs -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 PATH_SRC		:=	./src
 PATH_INCLUDES	:=	./incs
@@ -11,7 +11,11 @@ PATH_BUILD		:= ./build
 PATH_OBJS		:= $(PATH_BUILD)/objs
 
 #BIN				:=	./$(NAME)
-SRCS			:= $(PATH_SRC)/fractol.c \
+SRCS			:= $(PATH_SRC)/fractolutils.c \
+					$(PATH_SRC)/color.c \
+					$(PATH_SRC)/main.c \
+					$(PATH_SRC)/mandelbrot.c \
+					$(PATH_SRC)/events.c \
 
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
