@@ -6,7 +6,7 @@
 /*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:03:41 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/04/28 15:54:23 by danielseque      ###   ########.fr       */
+/*   Updated: 2022/04/28 22:48:52 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@
 # define KEY_LEFT		123
 # define KEY_RIGHT		124
 # define MAIN_PAD_ESC	53
+# define P				35
+# define M				46
+# define BACKSPACE		51
+# define W_KEY			13
+# define A_KEY			0
+# define S_KEY			1
+# define D_KEY			2
 
 # define WIDTH 600
 # define HEIGHT 600

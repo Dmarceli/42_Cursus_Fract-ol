@@ -23,9 +23,9 @@ int		ft_color(double t)
 	int		b;
 
 
-	r = (int)(15 * (1 - t) * (1 - t) * t * t * 255);
-	b = (int)(8 * (1 - t) * t * t * t * 255);
-	g = (int)(9 * (1 - t) * (1 - t) * (1 - t) * t * 255);
+	r = (int)(69 * (1 - t) * (1 - t) * t * t * 255);
+	b = (int)(1337 * (1 - t) * t * t * t * 255);
+	g = (int)(.420 * (1 - t) * (1 - t) * (1 - t) * t * 255);
 	return (ft_int_rgb(r, g, b));
 
 }

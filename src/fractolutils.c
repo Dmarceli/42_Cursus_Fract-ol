@@ -48,6 +48,7 @@ t_complex init_complex(double re, double im)
 
 int	print_pixel(t_mlx *mlx)
 {
+	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->data.img, 0, 0);
 	return (0);
 }

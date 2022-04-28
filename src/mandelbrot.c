@@ -24,20 +24,19 @@ int draw(t_mlx *mlx)
 
 void	init_mandelbrot(t_nbrs *fractol)
 {
-	fractol->maxiterations = 100;
+	fractol->maxiterations = 30;
 	fractol->min = init_complex(-2.0, -2.0);
 	fractol->max.re = 2.0;
 	fractol->max.im = fractol->min.im
 		+ (fractol->max.re - fractol->min.re) * HEIGHT / WIDTH;
 	fractol->relation.re = (fractol->max.re - fractol->min.re) / (WIDTH - 1);
 	fractol->relation.im = (fractol->max.im - fractol->min.im) / (HEIGHT - 1);
-	printf("min.re == %f\n", fractol->min.re);
-	printf("max.re == %f\n", fractol->max.re);
 }
 
 
 double calculate_mandelbrot(t_nbrs *nbr)
 {
+
 	int i;
 	double t;
 	t_complex z;
