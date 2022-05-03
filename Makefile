@@ -13,15 +13,18 @@ PATH_OBJS		:= $(PATH_BUILD)/objs
 #BIN				:=	./$(NAME)
 SRCS			:= $(PATH_SRC)/fractolutils.c \
 					$(PATH_SRC)/color.c \
+					$(PATH_SRC)/draw.c \
+					$(PATH_SRC)/argparser.c \
 					$(PATH_SRC)/main.c \
 					$(PATH_SRC)/mandelbrot.c \
 					$(PATH_SRC)/events.c \
+					$(PATH_SRC)/julia.c \
+					$(PATH_SRC)/burningship.c \
 
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
 
 all:$(NAME)
-		@./$(NAME)
 
 $(NAME): $(OBJ)
 		@$(CC) $(CFLAGS) $(LIBS) -o $(@) $^ -I$(PATH_INCLUDES)

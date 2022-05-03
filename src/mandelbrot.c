@@ -1,28 +1,6 @@
 #include "../incs/fractol.h"
 
-int draw(t_mlx *mlx)
-{
-	int	x;
-	int	y;
-	unsigned int color;
-
-	x = -1;
-	y = -1;
-	while (++y < HEIGHT)
-	{
-		mlx->nbrs.c.im = mlx->nbrs.max.im - y * mlx->nbrs.relation.im;
-		x = -1;
-		while (++x < WIDTH)
-		{
-			mlx->nbrs.c.re = mlx->nbrs.min.re + x * mlx->nbrs.relation.re;
-			color = ft_color(calculate_mandelbrot(&mlx->nbrs));
-			my_pixel_put(&mlx->data, x, y, color);
-		}
-	}
-	return (0);
-}
-
-void	init_mandelbrot(t_nbrs *fractol)
+void	init_fractol(t_nbrs *fractol)
 {
 	fractol->maxiterations = 30;
 	fractol->min = init_complex(-2.0, -2.0);
@@ -31,6 +9,9 @@ void	init_mandelbrot(t_nbrs *fractol)
 		+ (fractol->max.re - fractol->min.re) * HEIGHT / WIDTH;
 	fractol->relation.re = (fractol->max.re - fractol->min.re) / (WIDTH - 1);
 	fractol->relation.im = (fractol->max.im - fractol->min.im) / (HEIGHT - 1);
+	fractol->k.re= (-0.4);
+	fractol->k.im= (0.6);
+
 }
 
 

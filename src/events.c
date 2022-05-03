@@ -1,5 +1,4 @@
 #include "../incs/fractol.h"
-#include <stdlib.h>
 
 int ft_events(int keycode, t_mlx *mlx)
 {
@@ -22,12 +21,12 @@ int ft_events(int keycode, t_mlx *mlx)
 	if (keycode == P)
 	{
 		printf("P\n");
-		mlx->nbrs.min.re *= 0.96f;
-		mlx->nbrs.min.im *=	0.96f;
-		mlx->nbrs.max.re *= 0.96f;
-		mlx->nbrs.max.im *= 0.96f;
-		mlx->nbrs.relation.re *= 0.96f;
-		mlx->nbrs.relation.im *= 0.96f;
+		mlx->nbrs.min.re *= 0.8;
+		mlx->nbrs.min.im *=	0.8;
+		mlx->nbrs.max.re *= 0.8;
+		mlx->nbrs.max.im *= 0.8;
+		mlx->nbrs.relation.re *= 0.8;
+		mlx->nbrs.relation.im *= 0.8;
 		draw(mlx);
 		print_pixel(mlx);
 	}
@@ -41,7 +40,7 @@ int ft_events(int keycode, t_mlx *mlx)
 	}
 	if (keycode == BACKSPACE)
 	{
-		init_mandelbrot(&mlx->nbrs);
+		init_fractol(&mlx->nbrs);
 		draw(mlx);
 		print_pixel(mlx);
 	}

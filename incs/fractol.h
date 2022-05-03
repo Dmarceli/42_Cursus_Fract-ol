@@ -6,7 +6,7 @@
 /*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:03:41 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/04/28 22:48:52 by danielseque      ###   ########.fr       */
+/*   Updated: 2022/05/03 22:47:24 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 # define KEY_UP 		126
 # define KEY_DOWN		125
@@ -30,8 +32,8 @@
 # define S_KEY			1
 # define D_KEY			2
 
-# define WIDTH 600
-# define HEIGHT 600
+# define WIDTH 1080
+# define HEIGHT 720
 
 
 
@@ -58,6 +60,7 @@ typedef struct s_nbrs
 	t_complex 		max;
 	t_complex 		relation;
 	t_complex 		c;
+	t_complex		k;
 	int				maxiterations;
 	int				rgb;
 }			t_nbrs;
@@ -66,6 +69,7 @@ typedef struct s_mlx
 {
 	void			*mlx_ptr;
 	void			*win_ptr;
+	int				chosen_fract;
 	int				win_x;
 	int				win_y;
 	t_data			data;
@@ -88,14 +92,22 @@ int			main(int argc, char **argv);
 void		init_mlx(t_mlx *mlx);
 void		my_pixel_put(t_data *data, int x, int y, int color);
 t_complex 	init_complex(double re, double im);
-void		init_mandelbrot(t_nbrs *nbr);
+void		init_fractol(t_nbrs *nbr);
 double 		calculate_mandelbrot(t_nbrs *nbr);
 int 		draw(t_mlx *mlx);
-int			ft_color(double t);
+int			ft_color(double t, t_mlx *mlx);
 int			ft_int_rgb(int r, int g, int b);
 int 		ft_events(int keycode, t_mlx *mlx);
 int			ft_exit(t_mlx *mlx);
 int			print_pixel(t_mlx *mlx);
 void 		init_loops(t_mlx *mlx);
 void		move_fractal(int keycode, t_mlx *mlx);
+double 		calculate_julia(t_nbrs *nbr);
+double 		calculate_burningship(t_nbrs *nbr);
+int 		argparser(int argc, char **argv, t_mlx *mlx);
+int 		error_messsage(void);
+int			ft_strncmp(const char *s1, const char *s2, size_t n);
+double 		calculate_distributor(t_mlx *mlx);
+
+
 #endif

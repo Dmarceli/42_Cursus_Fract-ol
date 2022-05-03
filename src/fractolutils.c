@@ -26,17 +26,6 @@ void	init_mlx(t_mlx *mlx)
 
 }
 
-// int	ft_exit(t_mlx *mlx)
-// {
-// 	mlx->data.img = mlx_new_image(mlx->mlx_ptr, mlx->win_x, mlx->win_y);
-// 	mlx->data.addr = mlx_get_data_addr(mlx->data.img, &mlx->data.bits_per_pixel,
-// 			&mlx->data.line_length, &mlx->data.endian);
-// 	printf("destroyed\n");
-// 	//mlx_destroy_image(mlx->mlx_ptr, &mlx->data.img);
-// 	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-// 	return(0);
-// }
-
 t_complex init_complex(double re, double im)
 {
     t_complex complex;
