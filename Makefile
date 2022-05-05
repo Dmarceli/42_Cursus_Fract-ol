@@ -3,7 +3,8 @@ NAME	:=	Fract_ol
 
 CC		:=	gcc
 CFLAGS	:= -O3 -Wall -Wextra -Werror -g
-LIBS	=	-Iincs -Lmlx -lmlx -framework OpenGL -framework AppKit
+LIBS	=	-lmlx -framework OpenGL -framework AppKit
+INCS 	:= -Iincs -Imac
 
 PATH_SRC		:=	./src
 PATH_INCLUDES	:=	./incs
@@ -20,6 +21,7 @@ SRCS			:= $(PATH_SRC)/fractolutils.c \
 					$(PATH_SRC)/events.c \
 					$(PATH_SRC)/julia.c \
 					$(PATH_SRC)/burningship.c \
+					$(PATH_SRC)/zoom.c \
 
 
 OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
@@ -31,7 +33,7 @@ $(NAME): $(OBJ)
 		@printf "\033[44m[FRACT-OL BUILT!]\033[0m\n"
 
 $(PATH_OBJS)/%.o: $(PATH_SRC)/%.c | $(PATH_BUILD)
-		@$(CC) $(CFLAGS)  -c $(^) -o $@
+		@$(CC) $(CFLAGS) $(INCS) -c $(^) -o $@
 		@printf "\033[36m[Building ${@F}]\033[0m\n"
 
 

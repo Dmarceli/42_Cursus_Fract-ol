@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   draw.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/05 18:05:02 by dmarceli          #+#    #+#             */
+/*   Updated: 2022/05/05 18:32:14 by dmarceli         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../incs/fractol.h"
 
-int draw(t_mlx *mlx)
+int	draw(t_mlx *mlx)
 {
-	int	x;
-	int	y;
-	unsigned int color;
+	int				x;
+	int				y;
+	unsigned int	color;
 
 	x = -1;
 	y = -1;
@@ -19,6 +31,5 @@ int draw(t_mlx *mlx)
 			my_pixel_put(&mlx->data, x, y, color);
 		}
 	}
-	//print_pixel(mlx);
 	return (0);
 }
