@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:05:18 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/05/05 18:52:23 by dmarceli         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:42:07 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,10 @@ void	init_fractol(t_nbrs *fractol)
 		+ (fractol->max.re - fractol->min.re) * HEIGHT / WIDTH;
 	fractol->relation.re = (fractol->max.re - fractol->min.re) / (WIDTH - 1);
 	fractol->relation.im = (fractol->max.im - fractol->min.im) / (HEIGHT - 1);
-	fractol->x_gap = (fabs(fractol->max.re) + fabs(fractol->min.re)) / WIDTH;
-	fractol->y_gap = (fabs(fractol->max.im) + fabs(fractol->min.im)) / HEIGHT;
-	fractol->zoom = 1.0f;
 	fractol->k.re = (-0.4);
 	fractol->k.im = (0.6);
+	fractol->chosen_color = 1;
+	
 }
 
 double	calculate_mandelbrot(t_nbrs *nbr)

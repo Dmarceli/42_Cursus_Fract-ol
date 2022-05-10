@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:05:02 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/05/05 18:32:14 by dmarceli         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:12:08 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	draw(t_mlx *mlx)
 
 	x = -1;
 	y = -1;
+	mlx->nbrs.relation.re = (mlx->nbrs.max.re - mlx->nbrs.min.re) / (WIDTH - 1);
+	mlx->nbrs.relation.im = (mlx->nbrs.max.im - mlx->nbrs.min.im) / (HEIGHT - 1);
 	while (++y < HEIGHT)
 	{
 		mlx->nbrs.c.im = mlx->nbrs.max.im - y * mlx->nbrs.relation.im;

@@ -3,6 +3,8 @@
 		"ratio": "c",
 		"chrono": "c",
 		"cstdlib": "c",
-		"locale": "c"
+		"locale": "c",
+		"mlx.h": "c",
+		"concepts": "c"
 	}
 }

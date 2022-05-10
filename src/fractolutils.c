@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractolutils.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:05:09 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/05/05 19:31:48 by dmarceli         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:44:19 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ void	init_mlx(t_mlx *mlx)
 	mlx->data.addr = mlx_get_data_addr(mlx->data.img, &mlx->data.bits_per_pixel,
 			&mlx->data.line_length, &mlx->data.endian);
 	mlx_mouse_hook(mlx->win_ptr, handle_mouse_click, mlx);
+	mlx_hook(mlx->win_ptr, ON_MOUSEDOWN, (1L << 2), handle_mouse_click, mlx);
 	mlx_hook(mlx->win_ptr, ON_KEYDOWN, (1L << 0), ft_events, mlx);
 	mlx_hook(mlx->win_ptr, 17, (1L << 17), ft_exit, mlx);
-	mlx_hook(mlx->win_ptr, ON_MOUSEMOVE, (1L << 13), handle_mouse_click, mlx);
+	
 }
 
 t_complex	init_complex(double re, double im)
@@ -55,3 +56,4 @@ int	print_pixel(t_mlx *mlx)
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->data.img, 0, 0);
 	return (0);
 }
+

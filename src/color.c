@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/05 18:04:45 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/05/05 18:32:52 by dmarceli         ###   ########.fr       */
+/*   Updated: 2022/05/10 19:51:19 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,36 @@ int	ft_int_rgb(int r, int g, int b)
 
 int		ft_color(double t, t_mlx *mlx)
 {
-	int		r;
-	int		g;
-	int		b;
+	t_colors c;
 
 	(void)mlx;
-	// r = (int)(9 * (1 - t) * pow(t, 3) * 255);
-	// g = (int)(15 * pow((1 - t), 2) * pow(t, 2) * 255);
-	// b = (int)(8.5 * pow((1 - t), 3) * t * 255);
-	r = (int)(25 * (1 - t) * pow(t, 3) * 255);
-	g = (int)(2 * pow((1 - t), 2) * pow(t, 2) * 255);
-	b = (int)(18 * pow((1 - t), 3) * t * 255);
-	return (ft_int_rgb(r, g, b));
+	if (mlx->nbrs.chosen_color == 1)
+	{
+		c.r = (int)(9 * (1 - t) * pow(t, 3) * 255);
+		c.g = (int)(15 * pow((1 - t), 2) * pow(t, 2) * 255);
+		c.b = (int)(8.5 * pow((1 - t), 3) * t * 255);	
+	}
+	else if (mlx->nbrs.chosen_color == 2)
+	{
+		c.r = (int)(7 * (1 - t) * pow(t, 3) * 255);
+		c.g = (int)(9 * pow((1 - t), 2) * pow(t, 2) * 255);
+		c.b = (int)(2000 * pow((1 - t), 3) * t * 255);	
+	}
+	else if (mlx->nbrs.chosen_color == 3)
+	{
+		c.r = (int)(25 * (1 - t) * pow(t, 3) * 255);
+		c.g = (int)(2 * pow((1 - t), 2) * pow(t, 2) * 255);
+		c.b = (int)(18 * pow((1 - t), 3) * t * 255);	
+	}
+	return (ft_int_rgb(c.r, c.g, c.b));
+}
+
+void change_color_pallete(t_mlx *mlx, int keycode)
+{
+	if (keycode == 18)
+		mlx->nbrs.chosen_color = 1;
+	if (keycode == 19)
+		mlx->nbrs.chosen_color = 2;
+	if (keycode == 20)
+		mlx->nbrs.chosen_color = 3;
 }

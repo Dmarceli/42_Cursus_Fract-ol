@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmarceli <dmarceli@student.42.fr>          +#+  +:+       +#+        */
+/*   By: danielsequeira <danielsequeira@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 19:03:41 by dmarceli          #+#    #+#             */
-/*   Updated: 2022/05/05 18:38:46 by dmarceli         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:03:51 by danielseque      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "mlx.h"
+# include "../mlx/mlx.h"
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
@@ -32,8 +32,15 @@
 # define S_KEY			1
 # define D_KEY			2
 
-# define WIDTH 600
+# define WIDTH 800
 # define HEIGHT 600
+
+typedef struct s_colors
+{
+	int			r;
+	int			g;
+	int			b;
+}					t_colors;
 
 typedef struct s_complex
 {
@@ -59,11 +66,8 @@ typedef struct s_nbrs
 	t_complex		relation;
 	t_complex		c;
 	t_complex		k;
-	double			x_gap;
-	double			y_gap;
 	int				maxiterations;
-	int				rgb;
-	float			zoom;
+	int				chosen_color;
 }			t_nbrs;
 
 typedef struct s_mlx
@@ -109,6 +113,7 @@ int			error_messsage(void);
 int			ft_strncmp(const char *s1, const char *s2, size_t n);
 double		calculate_distributor(t_mlx *mlx);
 int			handle_mouse_click(int button, int x, int y, t_mlx *mlx);
-void		zoom_in(t_nbrs *nbr);
-
+int			julia_mouse(int x, int y, t_mlx *mlx);
+void		change_color_pallete(t_mlx *mlx, int keycode);
+void 		zoom(t_mlx *mlx, int keycode, int x, int y);
 #endif
