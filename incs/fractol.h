@@ -13,27 +13,27 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "../mlx/mlx.h"
+# include "../mlx_linux/mlx.h"
 # include <stdio.h>
 # include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
 
-# define KEY_UP 		126
-# define KEY_DOWN		125
-# define KEY_LEFT		123
-# define KEY_RIGHT		124
-# define MAIN_PAD_ESC	53
-# define P				35
-# define M				46
-# define BACKSPACE		51
-# define W_KEY			13
-# define A_KEY			0
-# define S_KEY			1
-# define D_KEY			2
+# define KEY_UP 		65362
+# define KEY_DOWN		65364
+# define KEY_LEFT		65361
+# define KEY_RIGHT		65363
+# define MAIN_PAD_ESC	65307
+# define P				112
+# define M				109
+# define BACKSPACE		65288
+# define W_KEY			119
+# define A_KEY			97
+# define S_KEY			115
+# define D_KEY			100
 
 # define WIDTH 800
-# define HEIGHT 600
+# define HEIGHT 800
 
 typedef struct s_colors
 {

@@ -49,11 +49,30 @@ t_complex	init_complex(double re, double im)
 	return (complex);
 }
 
+void	window_labels(t_mlx *mlx)
+{
+	int	color;
+
+	color = 0xffffff;
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 18, 40, color,
+		"Arrow keys or WASD to move around");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 18, 60, color,
+		"'1' '2' '3' to change the color range");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 18, 80, color,
+		"Mouse wheel to zoom in and out");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 18, 100, color,
+		"'backspace' to reset the view");
+	mlx_string_put(mlx->mlx_ptr, mlx->win_ptr, 18, 120, color,
+		"'M' to increase iterations");
+}
+
 int	print_pixel(t_mlx *mlx)
 {
-	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
 	draw(mlx);
 	mlx_put_image_to_window(mlx->mlx_ptr, mlx->win_ptr, mlx->data.img, 0, 0);
+	window_labels(mlx);
 	return (0);
 }
+
+
 

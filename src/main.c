@@ -22,6 +22,6 @@ int	main(int argc, char **argv)
 		init_fractol(&mlx.nbrs);
 	}
 	print_pixel(&mlx);
-	mlx_loop(&mlx.mlx_ptr);
+	mlx_loop(mlx.mlx_ptr);
 	return (0);
 }

@@ -46,15 +46,15 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 int	error_messsage(void)
 {
-	write(1, "\033[1;31mError!\n[0m", 14);
-	write(1, "Usage:\n", 8);
-	write(1, "./Fract_ol <Chosen Fractal>\n", 29);
-	write(1, "Available Fractals:\n", 21);
-	write(1, "\t-Mandelbrot\n", 14);
-	write(1, "\t-Julia\n", 9);
-	write(1, "\t-Burning Ship\n", 16);
+	printf("\033[1;31mError!\n[0m");
+	printf("Usage:\n");
+	printf("./Fract_ol <Chosen Fractal>\n");
+	printf("Available Fractals:\n");
+	printf("\t-Mandelbrot\n");
+	printf("\t-Julia\n");
+	printf("\t-Burning Ship\n");
 	exit(0);
-	return (0);
+	return(-1);
 }
 
 int	argparser(int argc, char **argv, t_mlx *mlx)

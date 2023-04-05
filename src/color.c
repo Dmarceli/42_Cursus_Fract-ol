@@ -25,8 +25,6 @@ int	ft_int_rgb(int r, int g, int b)
 int		ft_color(double t, t_mlx *mlx)
 {
 	t_colors c;
-
-	(void)mlx;
 	if (mlx->nbrs.chosen_color == 1)
 	{
 		c.r = (int)(9 * (1 - t) * pow(t, 3) * 255);
@@ -39,7 +37,7 @@ int		ft_color(double t, t_mlx *mlx)
 		c.g = (int)(9 * pow((1 - t), 2) * pow(t, 2) * 255);
 		c.b = (int)(2000 * pow((1 - t), 3) * t * 255);	
 	}
-	else if (mlx->nbrs.chosen_color == 3)
+	else
 	{
 		c.r = (int)(25 * (1 - t) * pow(t, 3) * 255);
 		c.g = (int)(2 * pow((1 - t), 2) * pow(t, 2) * 255);
@@ -50,10 +48,10 @@ int		ft_color(double t, t_mlx *mlx)
 
 void change_color_pallete(t_mlx *mlx, int keycode)
 {
-	if (keycode == 18)
+	if (keycode == 49)
 		mlx->nbrs.chosen_color = 1;
-	if (keycode == 19)
+	if (keycode == 50)
 		mlx->nbrs.chosen_color = 2;
-	if (keycode == 20)
+	if (keycode == 51)
 		mlx->nbrs.chosen_color = 3;
 }

@@ -1,9 +1,9 @@
-
 NAME	:=	fractol
 
-CC		:=	gcc
-CFLAGS	:= -O3 -Wall -Wextra -Werror
-LIBS	=	-Iincs -Lmlx -lmlx -framework OpenGL -framework AppKit
+CC		:=	clang
+CFLAGS	:= 	-Wall -Wextra -Werror -Ofast -ffinite-math-only -flto -march=native -fomit-frame-pointer -fPIE
+
+MLX_L           := ./mlx_linux/libmlx_Linux.a
 
 PATH_SRC		:=	./src
 PATH_INCLUDES	:=	./incs
@@ -26,8 +26,8 @@ OBJ				:= $(subst .c,.o,$(subst $(PATH_SRC), $(PATH_OBJS), $(SRCS)))
 
 all:$(NAME)
 
-$(NAME): $(OBJ)
-		@$(CC) -D DO_GPU $(CFLAGS) $(LIBS) -o $(@) $^ -I$(PATH_INCLUDES)
+$(NAME): $(MLX_L) $(OBJ)
+		@$(CC) $(CFLAGS)  -o $(@) $^ -I$(PATH_INCLUDES) $(MLX_L) $(OBJS) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 		@printf "\033[44m[FRACT-OL BUILT!]\033[0m\n"
 		@cat  incs/ascii-art
 
@@ -38,7 +38,11 @@ $(PATH_OBJS)/%.o: $(PATH_SRC)/%.c | $(PATH_BUILD)
 
 $(PATH_BUILD):
 		@mkdir -p $(PATH_BUILD)
-		@mkdir -p $(PATH_OBJS) 
+		@mkdir -p $(PATH_OBJS)
+
+$(MLX_L):
+	@printf "\033[4;32m[Building MLX]\033[0m\n"
+	@$(MAKE) -C ./mlx_linux --silent
 
 clean:
 		@printf "\033[38;5;1m[Cleaning objects!]\033[0m\n"

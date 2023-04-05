@@ -44,7 +44,7 @@ int	ft_events(int keycode, t_mlx *mlx)
 		mlx->nbrs.maxiterations += 1;
 	if (keycode == BACKSPACE)
 		init_fractol(&mlx->nbrs);
-	if (keycode >= 18 && keycode <= 20)
+	if (keycode >= 49 && keycode <= 51)
 		change_color_pallete(mlx, keycode);
 	print_pixel(mlx);
 	return (1);
