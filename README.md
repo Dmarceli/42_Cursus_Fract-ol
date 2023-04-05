@@ -22,3 +22,5 @@ Available Fractals:
   * Mandelbrot
   * Julia
   * Burning Ship
+
+if you have any problems during installation check [42 docs](https://harm-smits.github.io/42docs/libs/minilibx)
